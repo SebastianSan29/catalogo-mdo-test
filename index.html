@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo MDO Semillas & Servicios</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- VARIABLES DE COLOR (IDENTIDAD CORPORATIVA) --- */
+        :root {
+            --mdo-orange: #E65100;   /* Naranja fuerte */
+            --mdo-yellow: #FFD600;   /* Amarillo corporativo */
+            --mdo-brown: #3E2723;    /* Marrón sobrio para textos */
+            --mdo-green: #2E7D32;    /* Verde agro para botones/éxito */
+            --bg-light: #F5F5F5;
+            --white: #FFFFFF;
+        }
+
+        /* --- ESTILOS GENERALES --- */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-light);
+            color: var(--mdo-brown);
+            line-height: 1.6;
+        }
+
+        a { text-decoration: none; }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- HEADER --- */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 60px; 
+            display: block;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            color: var(--mdo-brown);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover { color: var(--mdo-orange); }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            /* Usamos una de tus imágenes como fondo con un filtro oscuro */
+            background: linear-gradient(rgba(62, 39, 35, 0.8), rgba(62, 39, 35, 0.8)), url('img/soya-7019 .jpg');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: var(--mdo-yellow);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        /* --- SECCIONES --- */
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin: 50px 0 30px;
+            color: var(--mdo-orange);
+            text-transform: uppercase;
+            border-bottom: 3px solid var(--mdo-yellow);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+        
+        .center-title { text-align: center; }
+
+        /* --- GRID DE PRODUCTOS --- */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            border-top: 5px solid var(--mdo-green); 
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            background-color: #eee;
+        }
+
+        .card-body {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: var(--mdo-brown);
+            font-size: 1.4rem;
+        }
+
+        .card .slogan {
+            font-style: italic;
+            color: var(--mdo-orange);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .specs {
+            background-color: #FFFDE7; 
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+        }
+
+        .specs ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .btn-whatsapp {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #25D366; 
+            color: white;
+            padding: 12px;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: auto;
+            transition: background 0.3s;
+        }
+
+        .btn-whatsapp:hover { background-color: #1EBE57; }
+        
+        /* --- SERVICIOS --- */
+        .service-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 5px solid var(--mdo-orange);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .service-card h3 { color: var(--mdo-brown); }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--mdo-brown);
+            color: var(--white);
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <div class="logo">
+                <img src="img/logo .jpg" alt="Logo MDO Semillas & Servicios">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#semillas">Semillas</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>MDO Semillas & Servicios</h1>
+            <p>Genética de alta productividad y soluciones integrales para el agro boliviano.</p>
+            <a href="#semillas" style="background: var(--mdo-orange); color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold;">Ver Catálogo</a>
+        </div>
+    </section>
+
+    <div class="container" id="semillas">
+        <div class="center-title">
+            <h2 class="section-title">Nuestras Semillas</h2>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <img src="img/soya-7019 .jpg" alt="Soya ICS 7019 RR" class="card-img">
+                <div class="card-body">
+                    <h3>Soya ICS 7019 RR</h3>
+                    <span class="slogan">"Genética de Alta Productividad y Excelente Estructura"</span>
+                    <p>Variedad precoz con excelente tolerancia a la mancha anillada y alto potencial de rendimiento en suelos intermedios y livianos.</p>
+                    <div class="specs">
+                        <ul>
+                            <li><strong>Ciclo:</strong> Precoz (97 días a maduración).</li>
+                            <li><strong>Floración:</strong> 37 días.</li>
+                            <li><strong>Sanidad:</strong> Muy tolerante a mancha anillada.</li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/59178419373?text=Hola,%20me%20interesa%20la%20Soya%20ICS%207019%20RR,%20%C2%BFPuedo%20tener%20mas%20informaci%C3%B3n" class="btn-whatsapp" target="_blank">Cotizar en WhatsApp</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="img/soya-6119 .jpg" alt="Soya ICS 6119 RR" class="card-img">
+                <div class="card-body">
+                    <h3>Soya ICS 6119 RR</h3>
+                    <span class="slogan">"Máximo Vigor con Excelente Ramificación"</span>
+                    <p>Diseñada para maximizar productividad en suelos secos con excelente enraizamiento.</p>
+                    <div class="specs">
+                        <ul>
+                            <li><strong>Ciclo:</strong> Precoz (94 días).</li>
+                            <li><strong>Floración:</strong> 35 días.</li>
+                            <li><strong>Hábito:</strong> Indeterminado.</li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/59178419373?text=Hola%2C%20me%20interesa%20la%20Soya%20ICS%206119%20RR%2C%20%C2%BFPuedo%20tener%20mas%20informaci%C3%B3n%3F" class="btn-whatsapp" target="_blank">Cotizar en WhatsApp</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="img/sorgo-itin .jpg" alt="Sorgo Granífero ITÍN" class="card-img">
+                <div class="card-body">
+                    <h3>Sorgo Granífero ITÍN</h3>
+                    <span class="slogan">"Seguridad total contra pájaros"</span>
+                    <p>Híbrido con tecnología TGP y taninos, ideal para zonas con alta presión de aves.</p>
+                    <div class="specs">
+                        <ul>
+                            <li><strong>Ciclo:</strong> Precoz - Intermedio (105 días).</li>
+                            <li><strong>Panoja:</strong> Semi-laxa (23-28 cm).</li>
+                            <li><strong>Sanidad:</strong> Excelente contra enfermedades foliares.</li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/59178419373?text=Hola%2C%20me%20interesa%20el%20Sorgo%20Gran%C3%ADfero%20IT%C3%8DN%2C%20%C2%BFPuedo%20tener%20mas%20informaci%C3%B3n%3F" class="btn-whatsapp" target="_blank">Cotizar en WhatsApp</a>
+                </div>
+            </div>
+
+             <div class="card">
+                <img src="img/sorgos-guayaco .jpg" alt="Sorgo Granífero GUAYACO" class="card-img">
+                <div class="card-body">
+                    <h3>Sorgo Granífero GUAYACO</h3>
+                    <span class="slogan">"El grano más pesado y resistente"</span>
+                    <p>Alto potencial de rendimiento, maximiza el follaje y se adapta a diversos suelos.</p>
+                    <div class="specs">
+                        <ul>
+                            <li><strong>Ciclo:</strong> Precoz (105-108 días).</li>
+                            <li><strong>Altura:</strong> 1.30m a 1.50m (Robusta).</li>
+                            <li><strong>Vuelco:</strong> Resistencia Excelente.</li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/59178419373?text=Hola%2C%20me%20interesa%20el%20Sorgo%20Gran%C3%ADfero%20GUAYACO%2C%20%C2%BFPuedo%20tener%20mas%20informaci%C3%B3n%3F" class="btn-whatsapp" target="_blank">Cotizar en WhatsApp</a>
+                </div>
+            </div>
+            
+            <div class="card">
+                 <img src="img/sorgo-pangare .jpg" alt="Sorgo Forrajero PANGARÉ" class="card-img">
+                <div class="card-body">
+                    <h3>Sorgo Forrajero PANGARÉ</h3>
+                    <span class="slogan">"Producción masiva de materia seca"</span>
+                    <p>Líder para ganadería. Ideal para pastoreo directo, henificado o diferido con tallos dulces.</p>
+                    <div class="specs">
+                        <ul>
+                            <li><strong>Ciclo:</strong> Intermedio (100 días).</li>
+                            <li><strong>Altura:</strong> 2.0 a 2.5 mt.</li>
+                            <li><strong>Rebrote:</strong> Excelente velocidad.</li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/59178419373?text=Hola%2C%20me%20interesa%20el%20Sorgo%20Forrajero%20PANGAR%C3%89%2C%20%C2%BFPuedo%20tener%20mas%20informaci%C3%B3n%3F" class="btn-whatsapp" target="_blank">Cotizar en WhatsApp</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="img/sorgo-dulsrogo.jpg" alt="Sorgo Silero DULSORGO" class="card-img">
+                <div class="card-body">
+                    <h3>Sorgo Silero DULSORGO</h3>
+                    <span class="slogan">"Equilibrio energía y volumen para ensilaje"</span>
+                    <p>Desarrollado para silaje de planta entera. Alta digestibilidad con 14 grados Brix.</p>
+                    <div class="specs">
+                        <ul>
+                            <li><strong>Uso:</strong> Silaje de planta entera.</li>
+                            <li><strong>Composición:</strong> Tallo 59%, Panoja 28%.</li>
+                            <li><strong>Azúcares:</strong> Excelente (14° Brix).</li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/59178419373?text=Hola%2C%20me%20interesa%20el%20Sorgo%20Silero%20DULSORGO%2C%20%C2%BFPuedo%20tener%20mas%20informaci%C3%B3n%3F" class="btn-whatsapp" target="_blank">Cotizar en WhatsApp</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="img/trigo-klein.jpg" alt="Trigo Klein Paraba" class="card-img">
+                <div class="card-body">
+                    <h3>Trigo Klein Paraba</h3>
+                    <span class="slogan">"Referente en Sanidad y Productividad"</span>
+                    <p>Equilibrio entre precocidad y estructura de espiga eficiente.</p>
+                    <div class="specs">
+                        <ul>
+                            <li><strong>Ciclo a Cosecha:</strong> 105 - 107 días.</li>
+                            <li><strong>Altura:</strong> 62 cm (Porte bajo).</li>
+                            <li><strong>Sanidad:</strong> Tolerante a Pyricularia.</li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/59178419373?text=Hola%2C%20me%20interesa%20el%20Trigo%20Klein%20Paraba%2C%20%C2%BFPuedo%20tener%20mas%20informaci%C3%B3n%3F" class="btn-whatsapp" target="_blank">Cotizar en WhatsApp</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="img/girasol-helio.jpg" alt="Girasol Helio 260" class="card-img">
+                <div class="card-body">
+                    <h3>Girasol Helio 260</h3>
+                    <span class="slogan">"Alta productividad y Aceite"</span>
+                    <p>Híbrido de alta productividad comprobada con excelente perfil sanitario.</p>
+                    <div class="specs">
+                        <ul>
+                            <li><strong>Ciclo a Cosecha:</strong> 130 días.</li>
+                            <li><strong>Aceite:</strong> 49 – 51%.</li>
+                            <li><strong>Curvatura:</strong> 180 grados (Excelente).</li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/59178419373?text=Hola%2C%20me%20interesa%20el%20Girasol%20Helio%20260%2C%20%C2%BFPuedo%20tener%20mas%20informaci%C3%B3n%3F" class="btn-whatsapp" target="_blank">Cotizar en WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="servicios">
+        <div class="center-title">
+            <h2 class="section-title">Servicios Especializados</h2>
+        </div>
+        <div class="grid">
+            <div class="service-card">
+                <h3>⭐ Clasificación y Procesamiento</h3>
+                <p>Garantizamos máxima pureza y calidad. Tecnología avanzada para oleaginosas, cereales y especialidades (Chía, Sésamo).</p>
+                <ul>
+                    <li>Mejora del vigor y capacidad germinativa.</li>
+                    <li>Tratamiento profesional para sanidad.</li>
+                </ul>
+                <a href="https://wa.me/59178419373?text=Hola%2C%20me%20interesa%20el%20Servicio%20de%20Clasificaci%C3%B3n%20y%20Procesamiento%20de%20Semillas.%20%C2%BFPuedo%20tener%20mas%20informaci%C3%B3n%3F" style="color: var(--mdo-green); font-weight: bold;">Más información &rarr;</a>
+            </div>
+
+            <div class="service-card">
+                <h3>🌱 Producción de Semillas</h3>
+                <p>Servicio integral bajo altos estándares. Nos adaptamos a sus necesidades sin barreras de volumen.</p>
+                <ul>
+                    <li>Sin volumen mínimo.</li>
+                    <li>Seguimiento técnico y Certificación.</li>
+                </ul>
+                <a href="https://wa.me/59178419373?text=Hola%2C%20me%20interesa%20el%20Servicio%20de%20Producci%C3%B3n%20de%20semillas%2C%20%C2%BFPuedo%20tener%20mas%20informaci%C3%B3n%3F" style="color: var(--mdo-green); font-weight: bold;">Más información &rarr;</a>
+            </div>
+
+            <div class="service-card">
+                <h3>🌍 Importación y Exportación</h3>
+                <p>Conectamos su producción con el mundo. Gestión de logística internacional sin volumen mínimo.</p>
+                <ul>
+                    <li>Asesoría aduanera y permisos fitosanitarios.</li>
+                    <li>Alcance global en logística de semillas.</li>
+                </ul>
+                <a href="https://wa.me/59178419373?text=Hola,%20me%20interesa%20el%20Servicio%20de%20Importaci%C3%B3n%20y%20Exportaci%C3%B3n%20de%20Semillas,%20%C2%BFPuedo%20tener%20mas%20informaci%C3%B3n?" style="color: var(--mdo-green); font-weight: bold;">Más información &rarr;</a>
+            </div>
+
+            <div class="service-card">
+                <h3>🚛 Transporte de Carga</h3>
+                <p>Movilizamos su carga con puntualidad y seguridad. Especializados en el sector agroindustrial.</p>
+                <ul>
+                    <li>Capacidad hasta 20 toneladas.</li>
+                    <li>Protocolos de limpieza anti-contaminación.</li>
+                </ul>
+                <a href="https://wa.me/59178419373?text=Hola%2C%20me%20interesa%20el%20Servicio%20de%20Transporte%2C%20%C2%BFPuedo%20tener%20mas%20informaci%C3%B3n%3F" style="color: var(--mdo-green); font-weight: bold;">Más información &rarr;</a>
+            </div>
+        </div>
+    </div>
+
+    <footer id="contacto">
+        <div class="container">
+            <p>&copy; 2026 Multiplicadora del Oriente SRL (MDO). Todos los derechos reservados.</p>
+            <p>Santa Cruz, Bolivia.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
